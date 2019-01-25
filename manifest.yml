@@ -1,6 +1,0 @@
- applications:
-- name: group5-frontend
-buildpack: staticfile_buildpack
-routes:
-- route: group5-frontend.eu-de.mybluemix.net 
-memory: 256M
