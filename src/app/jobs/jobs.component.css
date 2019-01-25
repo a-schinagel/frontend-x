@@ -1,0 +1,19 @@
+.card {
+	margin-bottom: 20px;
+}
+.card-header {
+	color: #384B98;
+	background-color: #FDF3D1;
+}
+
+.card-body {
+	color: #384B98;
+}
+
+.card-title {
+	color: #384B98;
+}
+
+.card-text {
+	color: #384B98;
+}
