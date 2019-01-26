@@ -14,9 +14,12 @@
 	</div>
 	<div class="col">
 		<ul class="nav justify-content-end">
-			<li class="nav-item"><a routerLink="/login" class="nav-link">Login</a></li>
-			<li class="nav-item"><a routerLink="/register" class="nav-link">Register</a></li>
-			<li class="nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
+			<li class="nav-item" *ngIf="isLoggedIn()"><a (click)="logout()" class="nav-link">Profile</a></li>
+			<li class="nav-item" *ngIf="isLoggedIn(); else showLoginOptions"><a (click)="logout()" class="nav-link">Logout</a></li>
+			<ng-template #showLoginOptions>
+				<li class="nav-item"><a routerLink="/login" class="nav-link">Login</a></li>
+				<li class="nav-item"><a routerLink="/register" class="nav-link">Register</a></li>
+			</ng-template>
 		</ul>
 	</div>
 </div>

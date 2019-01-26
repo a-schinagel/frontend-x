@@ -3,3 +3,9 @@
 	margin-bottom: 20px;
 	border-bottom: solid 1px #DCD5B9;
 }
+
+a {
+	color: #007bff;
+	text-decoration: none;
+	cursor: pointer;
+}

@@ -17,3 +17,7 @@
 .card-text {
 	color: #384B98;
 }
+
+#driver_license_required {
+	margin-left: 10px;
+}

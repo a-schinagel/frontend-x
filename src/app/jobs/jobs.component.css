@@ -17,3 +17,11 @@
 .card-text {
 	color: #384B98;
 }
+
+.new-job {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}

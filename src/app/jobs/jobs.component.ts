@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobService } from '../job.service';
+import { Job } from '../domain/job';
 
 @Component({
 	selector: 'app-jobs',
@@ -8,8 +10,27 @@ import { Component, OnInit } from '@angular/core';
 
 export class JobsComponent implements OnInit {
 
-	constructor() {}
+	jobs : Job[];
 
-	ngOnInit() {}
+	constructor(private jobService: JobService) {}
+
+	ngOnInit() {
+		this.getJobs();
+	}
+
+	getJobs(): void {
+		this.jobService.getJobs().subscribe(jobs => this.jobs = jobs);
+	}
+
+	isLoggedIn(): boolean {
+		let currentUser = localStorage.getItem('currentUser');
+		let accessToken =  localStorage.getItem('accessToken');
+
+		if(currentUser && accessToken) {
+			return true;
+		}
+
+		return false;
+	}
 
 }

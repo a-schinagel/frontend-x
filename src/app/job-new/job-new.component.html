@@ -1,0 +1,36 @@
+<div class="card shadow p-3 mb-5 bg-white rounded">
+	<div class="card-body">
+		<h4>New job</h4>
+		<form #jobForm="ngForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<label for="inputTitle">Title:</label>
+				<input type="text" class="form-control" id="inputTitle" aria-describedby="inputTitleHelp" name="title" [(ngModel)]="job.title" required>
+				<small id="inputTitleHelp" class="form-text text-muted">Enter the title of the job</small>
+			</div>
+			<div class="form-group">
+				 <textarea class="form-control" aria-label="With textarea" placeholder="Describe the job" [(ngModel)]="job.description" name="description"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="inputLocation">Adres:</label>
+				<input type="text" class="form-control" id="inputLocation" aria-describedby="inputLocationHelp" [(ngModel)]="job.location" name="location" required>
+				<small id="inputLocationHelp" class="form-text text-muted">Where is the job to be executed...</small>
+			</div>
+			<div class="form-group">
+				<label for="inputDate">When is the job to be executed:</label>
+				<input type="text" class="form-control" id="inputDate" aria-describedby="inputDateHelp" [(ngModel)]="job.start_time" name="start_time" placeholder="dd/mm/yyyy" required>
+				<small id="inputDateHelp" class="form-text text-muted">dd/mm/yyyy</small>
+			</div>
+			<div class="form-group">
+				<label for="inputPrice">Price:</label>
+				<input type="number" class="form-control" id="inputPrice" aria-describedby="inputPriceHelp" [(ngModel)]="job.price" name="price" required>
+				<small id="inputPriceHelp" class="form-text text-muted">How much are you able to spend</small>
+			</div>
+			<div class="form-group">
+				<label for="driver_license_required">Driver license required</label>
+				<input name="driver_license_required" [(ngModel)]="job.driver_license_required" id="driver_license_required" type="checkbox">
+			</div>
+
+			<button type="submit" class="btn btn-warning">Post</button>
+		</form>
+	</div>
+</div>

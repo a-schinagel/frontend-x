@@ -16,13 +16,11 @@ interface LoginOutput{
 	userId: string
 }
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
 
-	private url = 'https://loopback-group5-toolchain.eu-de.mybluemix.net' + '/api/People';
+	private url = 'http://localhost:3000' + '/api/People';
 
 	constructor(private http: HttpClient) { }
 

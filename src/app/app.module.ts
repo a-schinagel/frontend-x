@@ -22,7 +22,6 @@ import {
 	TooltipModule,
 	TypeaheadModule
 } from 'ngx-bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './authentication.service';
 import { AuthorizationInterceptorService } from './authorization-interceptor.service';
@@ -33,9 +32,10 @@ import { LoginComponent } from './login/login.component';
 import { JobDetailComponent } from './job-detail/job-detail.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JobNewComponent } from './job-new/job-new.component';
 
 @NgModule({
-	declarations: [AppComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent, LogoutComponent], 
+	declarations: [AppComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent, LogoutComponent, JobNewComponent], 
 	imports: [
 		BrowserModule,
 		FormsModule, 
@@ -57,7 +57,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 		TooltipModule,
 		TypeaheadModule,
 		AppRoutingModule,
-		HttpClientModule
+		HttpClientModule,
 	], 
 	providers: [AuthenticationService, 
 		{ 

@@ -9,6 +9,7 @@ import { AuthenticationService } from './authentication.service';
 })
 
 export class AppComponent implements OnInit {
+
 	title = 'Karweitje';
 
 	constructor(private authenticationService: AuthenticationService) { }
@@ -17,5 +18,16 @@ export class AppComponent implements OnInit {
 
 	logout() {
 		this.authenticationService.logout().subscribe();
+	}
+
+	isLoggedIn(): boolean {
+		let currentUser = localStorage.getItem('currentUser');
+		let accessToken =  localStorage.getItem('accessToken');
+
+		if(currentUser && accessToken) {
+			return true;
+		}
+
+		return false;
 	}
 }
