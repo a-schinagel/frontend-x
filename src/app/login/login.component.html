@@ -1,14 +1,14 @@
 <div class="alert alert-warning">
 	<h1>Login</h1>
-	<form>
+	<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
 		<div class="form-group">
-			<label for="inputUsername">Username:</label>
-			<input type="email" class="form-control" id="inputUsername" placeholder="Enter a username">
+			<label for="inputEmail">E-mail:</label>
+			<input type="email" class="form-control" id="inputEmail" placeholder="Enter your email adress" [(ngModel)]="persons.email" name="email" required>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword">Password:</label>
-			<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+			<input type="password" class="form-control" id="inputPassword" placeholder="Password" [(ngModel)]="persons.password" name="password" required>
 		</div>
-		<button type="button" class="btn btn-danger">Login</button>
+		<button type="submit" class="btn btn-danger">Login</button>
 	</form>
 </div>

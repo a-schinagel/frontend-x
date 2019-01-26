@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { 
 	AccordionModule, 
@@ -25,18 +22,20 @@ import {
 	TooltipModule,
 	TypeaheadModule
 } from 'ngx-bootstrap';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
+
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { AuthenticationService } from './authentication.service';
+import { AuthorizationInterceptorService } from './authorization-interceptor.service';
+import { UnauthorizedInterceptorService } from './unauthorized-interceptor.service';
 import { JobsComponent } from './jobs/jobs.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { JobDetailComponent } from './job-detail/job-detail.component';
+import { LogoutComponent } from './logout/logout.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
-	declarations: [AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, HeroSearchComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent], 
+	declarations: [AppComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent, LogoutComponent], 
 	imports: [
 		BrowserModule,
 		FormsModule, 
@@ -58,10 +57,20 @@ import { JobDetailComponent } from './job-detail/job-detail.component';
 		TooltipModule,
 		TypeaheadModule,
 		AppRoutingModule,
-		HttpClientModule,
-		HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
+		HttpClientModule
 	], 
-	providers: [], 
+	providers: [AuthenticationService, 
+		{ 
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthorizationInterceptorService,
+			multi: true
+		},
+		{ 
+			provide: HTTP_INTERCEPTORS,
+			useClass: UnauthorizedInterceptorService,
+			multi: true
+		}
+	], 
 	bootstrap: [AppComponent]
 })
 

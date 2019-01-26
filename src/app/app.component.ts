@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from './authentication.service';
 
 @Component({
 	selector: 'app-root',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 	title = 'Karweitje';
+
+	constructor(private authenticationService: AuthenticationService) { }
+
+	ngOnInit() { }
+
+	logout() {
+		this.authenticationService.logout().subscribe();
+	}
 }
