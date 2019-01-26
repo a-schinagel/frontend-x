@@ -22,7 +22,7 @@ interface LoginOutput{
 
 export class AuthenticationService {
 
-	private url = environment.apiBaseUrl + '/api/People';
+	private url = 'https://loopback-group5-toolchain.eu-de.mybluemix.net' + '/api/People';
 
 	constructor(private http: HttpClient) { }
 
