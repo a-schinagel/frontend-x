@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { JobService } from '../job.service'
+import { Job } from '../domain/job';
 
 @Component({
 	selector: 'app-job-detail',
@@ -9,14 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 
 export class JobDetailComponent implements OnInit {
 
-	constructor(private route: ActivatedRoute) { }
+	public id: string
+	public job: Job;
+
+	constructor(private route: ActivatedRoute, private jobService: JobService) { }
 
 	ngOnInit(): void { 
+		this.id = this.route.snapshot.paramMap.get('id');
 		this.getJob();
 	}
 
 	getJob(): void {
-		const id = +this.route.snapshot.paramMap.get('id');
-		console.log(id);
+		this.jobService.getJob(this.id).subscribe(job => this.job = job);
 	}
 }

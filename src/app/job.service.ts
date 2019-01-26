@@ -24,8 +24,12 @@ export class JobService {
 			);
 	}
 
-	getJob(id: number): Observable<Job> {
-
+	getJob(id: string): Observable<Job> {
+		const extended_url = this.url + '/' + id;
+		return this.http.get<Job>(extended_url).pipe(
+			tap((job: Job) => console.log(job)),
+			catchError(this.handleError<Job>('get Job'))
+		)
 	}
 
 	addJob(job: Job): Observable<Job> {
@@ -35,7 +39,7 @@ export class JobService {
 		);
 	}
 
-	deleteJob(job: Job | number): Observable<Job> {
+	deleteJob(job: Job | string): void {
 
 	}
 
