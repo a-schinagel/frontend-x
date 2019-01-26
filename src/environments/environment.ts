@@ -5,7 +5,7 @@
 export const environment = {
 	production: false,
 	local_apiBaseUrl: "http://localhost:3000",
-	apiBaseUrl: "https://loopback-group5-toolchain.eu-de.mybluemix.net"
+	apiBaseUrl: "https://loopback-group5-toolchain.eu-de.mybluemix.net/"
 };
 
 /*

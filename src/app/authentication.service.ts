@@ -22,7 +22,7 @@ interface LoginOutput{
 
 export class AuthenticationService {
 
-	private url = environment.local_apiBaseUrl + '/api/People';
+	private url = environment.apiBaseUrl + '/api/People';
 
 	constructor(private http: HttpClient) { }
 
