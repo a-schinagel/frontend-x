@@ -12,7 +12,7 @@ const httpOptions ={
 
 export class JobService {
 
-	private url = 'http://localhost:3000' + '/api/Jobs';
+	private url = 'https://loopback-group5-toolchain.eu-de.mybluemix.net' + '/api/Jobs';
 
 	constructor(private http: HttpClient) { }
 
@@ -25,9 +25,9 @@ export class JobService {
 	}
 
 	getJob(id: string): Observable<Job> {
-		const extended_url = this.url + '/' + id;
+		const extended_url = this.url + '/' + id + '?filter={"include": "comments"}';
 		return this.http.get<Job>(extended_url).pipe(
-			tap((job: Job) => console.log(job)),
+			tap((job: any) => console.log(job)),
 			catchError(this.handleError<Job>('get Job'))
 		)
 	}

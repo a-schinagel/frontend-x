@@ -1,0 +1,11 @@
+<div class="card shadow p-3 mb-5 bg-white rounded">
+	<div class="card-body">
+		<h4>Add comment</h4>
+		<form #commentForm="ngForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				 <textarea class="form-control" placeholder="Comment..." [(ngModel)]="comment.text" name="text"></textarea>
+			</div>
+			<button type="submit" class="btn btn-success">Send</button>
+		</form>
+	</div>
+</div>

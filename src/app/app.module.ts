@@ -33,9 +33,11 @@ import { JobDetailComponent } from './job-detail/job-detail.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JobNewComponent } from './job-new/job-new.component';
+import { CommentNewComponent } from './comment-new/comment-new.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
-	declarations: [AppComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent, LogoutComponent, JobNewComponent], 
+	declarations: [AppComponent, JobsComponent, RegisterComponent, LoginComponent, JobDetailComponent, LogoutComponent, JobNewComponent, CommentNewComponent, CommentComponent], 
 	imports: [
 		BrowserModule,
 		FormsModule, 

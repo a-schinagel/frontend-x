@@ -18,10 +18,10 @@ export class JobDetailComponent implements OnInit {
 
 	ngOnInit(): void { 
 		this.id = this.route.snapshot.paramMap.get('id');
-		this.getJob();
+		this.getJob(this.id);
 	}
 
-	getJob(): void {
-		this.jobService.getJob(this.id).subscribe(job => this.job = job);
+	getJob(id: string): void {
+		this.jobService.getJob(id).subscribe(job => this.job = job);
 	}
 }

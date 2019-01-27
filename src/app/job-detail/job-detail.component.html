@@ -1,8 +1,20 @@
 <div *ngIf="job">
-	<div class="card">
+	<div class="card shadow">
+		<h5 class="card-header">{{ job.title }}</h5>
 		<div class="card-body">
-			<h5 class="card-title">{{job.title}}</h5>
-			<p class="card-text">{{job.description}}</p>
+			<h5 class="card-title">by {{ job.person.email }}</h5>
+			<p class="card-text">{{ job.description }}</p>
+		</div>
+	</div>
+	<div *ngIf="job.comments"> 
+		<div *ngFor="let comment of job.comments">
+			<div class="card shadow">
+				<div class="card-body">
+					<p class="card-text"><i>{{ comment.person.email }} says: </i>{{ comment.text }}</p>
+				</div>
+			</div>	
 		</div>
 	</div>
 </div>
+
+<app-comment-new [jobid]="id"></app-comment-new>

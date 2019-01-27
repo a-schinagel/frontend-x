@@ -9,4 +9,6 @@ export class Job {
 	price: number;
 	vacant: boolean;
 	completed: boolean;
+	job: object;
+	person: object;
 }

@@ -10,7 +10,7 @@ import { Job } from '../domain/job';
 
 export class JobsComponent implements OnInit {
 
-	jobs : Job[];
+	jobs: Job[];
 
 	constructor(private jobService: JobService) {}
 
