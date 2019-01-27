@@ -22,15 +22,15 @@ export class JobNewComponent implements OnInit {
 		if(!this.isLoggedIn()) { return }
 
 		const f = this.job.start_time.split("/");
-		this.job.price = parseInt(this.job.price);
+		this.job.price = this.job.price;
 		this.job.personId = localStorage.getItem('currentUser');
-		this.job.start_time = new Date(f[2], f[1]-1, f[0]).toString();
+		this.job.start_time = new Date(parseInt(f[2]), parseInt(f[1])-1, parseInt(f[0])).toString();
 		this.job.end_time = new Date().toString();
 		this.job.vacant = true;
 		this.job.completed = false;
 
 		console.log(this.job);
-		this.jobService.addJob(this.job).subscribe();
+		// this.jobService.addJob(this.job).subscribe();
 	}
 
 	isLoggedIn(): boolean {
