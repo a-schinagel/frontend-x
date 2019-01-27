@@ -11,4 +11,5 @@ export class Job {
 	completed: boolean;
 	job: object;
 	person: object;
+	driver_license_required: boolean;
 }
